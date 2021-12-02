@@ -1,7 +1,7 @@
 // USER ==============================================================================================
 
 
-const URL_BASE = "http://localhost:8080/api/";
+const URL_BASE = "http://129.151.97.16:8080/api/";
 
 
 
@@ -80,7 +80,7 @@ $("#guardar").click(function () {
     } else {
          if ($("#contrasenaRegistro").val() == $("#contrasenaRegistro2").val()) {
             let datos = jsonDatos();
-            let url = "http://localhost:8080/api/user/emailexist/"+datos.email;
+            let url = "http://129.151.97.16:8080/api/user/emailexist/"+datos.email;
             getFuncion(url, emailExiste);
         } else {
             alert("Las contraseñas no coinciden :c");
@@ -123,7 +123,7 @@ let emailExiste = function(response){
     if(response){
         alert("El Email ya existe");
     }else{
-        let url = "http://localhost:8080/api/user/new";
+        let url = "http://129.151.97.16:8080/api/user/new";
         postFuncion(url, registroUsuario);
     }
 }
@@ -146,7 +146,7 @@ function jsonDatos(){
 function validarEmail() {
     let email = $("#emailRegistro").val();
     $.ajax({
-        url: "http://localhost:8080/api/user/emailexist/" + email,
+        url: "http://129.151.97.16:8080/api/user/emailexist/" + email,
         method: "GET",
         dataType: "json",
         success: function (response) {
@@ -251,7 +251,7 @@ function getEmailNew() {
 
 function consultarUsuario() {
     $.ajax({
-        url: "http://localhost:8080/api/user/all",
+        url: "http://129.151.97.16:8080/api/user/all",
         type: "GET",
         datatype: "JSON",
         success: function (response) {
@@ -309,7 +309,7 @@ $("#editarUsuario").click(function() {
         dataType: 'json',
         data: dataToSend,
         contentType: 'application/json',
-        url: "http://localhost:8080/api/user/update",
+        url: "http://129.151.97.16:8080/api/user/update",
         type: 'PUT',
         success: function (response) {
             console.log(response);
@@ -323,7 +323,7 @@ $("#editarUsuario").click(function() {
 
 function buscarPorIDUsuario(idItem) {
     $.ajax({
-        url: "http://localhost:8080/api/user/" + idItem,
+        url: "http://129.151.97.16:8080/api/user/" + idItem,
         type: "GET",
         datatype: "JSON",
         success: function (response) {
@@ -372,7 +372,7 @@ function eliminarUsuario(idElemento) {
     let datoEnvio = JSON.stringify(elemento);
     console.log(datoEnvio);
     $.ajax({
-      url: "http://localhost:8080/api/user/" + idElemento,
+      url: "http://129.151.97.16:8080/api/user/" + idElemento,
       type: "DELETE",
       data: datoEnvio,
       datatype: "json",
@@ -407,7 +407,7 @@ $("#guardarInventario").click(function () {
             photography: $("#photographyRegistro").val()
         }
         $.ajax({
-            url: "http://localhost:8080/api/clone/new",
+            url: "http://129.151.97.16:8080/api/clone/new",
             method: "POST",
             dataType: "JSON",
             data: JSON.stringify(datos),
@@ -430,7 +430,7 @@ $("#guardarInventario").click(function () {
 
 function consultarInventario() {
     $.ajax({
-        url: "http://localhost:8080/api/clone/all",
+        url: "http://129.151.97.16:8080/api/clone/all",
         type: "GET",
         datatype: "JSON",
         success: function (response) {
@@ -482,7 +482,7 @@ $("#editarInventario").click(function() {
         dataType: 'json',
         data: dataToSend,
         contentType: 'application/json',
-        url: "http://localhost:8080/api/clone/update",
+        url: "http://129.151.97.16:8080/api/clone/update",
         type: 'PUT',
         success: function (response) {
             console.log(response);
@@ -496,7 +496,7 @@ $("#editarInventario").click(function() {
 
 function buscarPorIDInventario(idItem) {
     $.ajax({
-        url: "http://localhost:8080/api/clone/" + idItem,
+        url: "http://129.151.97.16:8080/api/clone/" + idItem,
         type: "GET",
         datatype: "JSON",
         success: function (response) {
@@ -524,7 +524,7 @@ function eliminarInventario(idElemento) {
     let datoEnvio = JSON.stringify(elemento);
     console.log(datoEnvio);
     $.ajax({
-      url: "http://localhost:8080/api/clone/" + idElemento,
+      url: "http://129.151.97.16:8080/api/clone/" + idElemento,
       type: "DELETE",
       data: datoEnvio,
       datatype: "json",
